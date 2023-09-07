@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"os"
+	"fmt"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -14,6 +15,8 @@ func main() {
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	password := "PAssword123"
+	fmt.Println(password)
 
 	e.GET("/", func(c echo.Context) error {
 		return c.HTML(http.StatusOK, "Hello, Docker! <3")
@@ -27,8 +30,6 @@ func main() {
 	if httpPort == "" {
 		httpPort = "8080"
 	}
-	password := "123"
-	fmt.Println(password)
 
 	e.Logger.Fatal(e.Start(":" + httpPort))
 }
