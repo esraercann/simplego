@@ -15,7 +15,7 @@ func main() {
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	password := "PAssword123"
+	password := "SHA123123123134345345345345"
 	fmt.Println(password)
 
 	e.GET("/", func(c echo.Context) error {
