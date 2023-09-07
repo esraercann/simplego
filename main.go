@@ -15,8 +15,8 @@ func main() {
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	jwt := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-	fmt.Println(jwt)
+	//jwt := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+	//fmt.Println(jwt)
 
 	e.GET("/", func(c echo.Context) error {
 		return c.HTML(http.StatusOK, "Hello, Docker! <3")
