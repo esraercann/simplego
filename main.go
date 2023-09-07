@@ -27,13 +27,15 @@ func main() {
 	if httpPort == "" {
 		httpPort = "8080"
 	}
+	password := "123"
+	fmt.Println(password)
 
 	e.Logger.Fatal(e.Start(":" + httpPort))
 }
 
 // Simple implementation of an integer minimum
 // Adapted from: https://gobyexample.com/testing-and-benchmarking
-// Password= Deneme123.
+
 func IntMin(a, b int) int {
 	if a < b {
 		return a
