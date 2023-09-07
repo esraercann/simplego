@@ -8,16 +8,12 @@ on:
     branches:
     - main
 jobs:
-  secret_scanning:
-    runs-on: ubuntu-20.04
+  scan:
+    name: gitleaks
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - run: docker run --rm -v $(pwd):/src hysnsec/trufflehog file:///src --json > trufflehog-output.json
-        continue-on-error: true
-
-      - uses: actions/upload-artifact@v3
         with:
-          name: TruffleHog
-          path: trufflehog-output.json
-        if: always() 
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+      
