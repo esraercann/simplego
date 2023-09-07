@@ -8,9 +8,8 @@ on:
     branches:
     - main
 jobs:
-secret_scanning:
+  secret_scanning:
     runs-on: ubuntu-20.04
-    needs: test
     steps:
       - uses: actions/checkout@v2
 
