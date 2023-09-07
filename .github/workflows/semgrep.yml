@@ -30,6 +30,6 @@ jobs:
         - name: save report as pipeline artifact
           uses: actions/upload-artifact@v3
           with:
-            name: report.sarif
-            path: report.sarif
+            name: semgrep-result.json
+            path: semgrep-result.json
 
