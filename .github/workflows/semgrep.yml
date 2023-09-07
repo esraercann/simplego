@@ -24,7 +24,7 @@ jobs:
         # step 2
         - name: full scan
           run: |
-           semgrep ci --config=semgrep --json --output=semgrep-result.json || true
+           semgrep ci --output=semgrep-result.json || true
 
         # step 3
         - name: save report as pipeline artifact
