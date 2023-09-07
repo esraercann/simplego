@@ -33,6 +33,7 @@ func main() {
 
 // Simple implementation of an integer minimum
 // Adapted from: https://gobyexample.com/testing-and-benchmarking
+// Password= Deneme123.
 func IntMin(a, b int) int {
 	if a < b {
 		return a
