@@ -1,0 +1,24 @@
+name: CICD
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:
+secret_scanning:
+    runs-on: ubuntu-20.04
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: docker run --rm -v $(pwd):/src hysnsec/trufflehog file:///src --json > trufflehog-output.json
+        continue-on-error: true
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: TruffleHog
+          path: trufflehog-output.json
+        if: always() 
