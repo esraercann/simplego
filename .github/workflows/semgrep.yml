@@ -24,12 +24,21 @@ jobs:
         # step 2
         - name: full scan
           run: |
-           semgrep ci --config "p/default" --output=semgrep-result.json || true
+            semgrep \
+              --sarif --output report.sarif \
+              --metrics=off \
+              --config="p/default"
 
         # step 3
         - name: save report as pipeline artifact
           uses: actions/upload-artifact@v3
           with:
-            name: semgrep-result.json
-            path: semgrep-result.json
+            name: report.sarif
+            path: report.sarif
 
+        # step 4
+        - name: publish code scanning alerts
+          uses: github/codeql-action/upload-sarif@v2
+          with:
+            sarif_file: report.sarif
+            category: semgrep
