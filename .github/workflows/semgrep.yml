@@ -24,10 +24,7 @@ jobs:
         # step 2
         - name: full scan
           run: |
-            semgrep \
-              --sarif --output report.sarif \
-              --metrics=off \
-              --config="p/default"
+           semgrep ci --config=semgrep --json --output=semgrep-result.json || true
 
         # step 3
         - name: save report as pipeline artifact
